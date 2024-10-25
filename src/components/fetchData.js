@@ -7,11 +7,15 @@ const fetchData = async (query, weather, setWeather) => {
   if (query) {
     weatherData = await axios.get(weatherURL(query));
   } else {
-    weatherData = await axios.get(weatherURL("London"));
-    console.log(weatherData);
+    weatherData = await axios.get(weatherURL("london"));
   }
 
-  setWeather({ ...weather, data: weatherData.data, isLoading: false });
+  setWeather({
+    ...weather,
+    current: weatherData.data.current,
+    location: weatherData.data.location,
+    isLoading: false,
+  });
 };
 
 export default fetchData;

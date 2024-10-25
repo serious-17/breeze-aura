@@ -1,6 +1,7 @@
 import { atom } from "jotai";
 
 export const weatherData = atom({
-  data: [],
+  current: [],
+  location: [],
   isLoading: true,
 });
