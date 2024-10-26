@@ -73,15 +73,7 @@ const Home = () => {
           <motion.div variants={fade} className="weather-container">
             <div className={style.mainInfo}>
               <div className={style.weather}>
-                <motion.h2
-                  drag="x"
-                  dragConstraints={{
-                    left: 0,
-                    right: 0,
-                  }}
-                >
-                  {weather.current.temp_c}º C
-                </motion.h2>
+                <h2>{weather.current.temp_c}º C</h2>
                 <div className={style.condition}>
                   <p>{weather.current.condition.text}</p>
                   <img src={weather.current.condition.icon} alt="" />
