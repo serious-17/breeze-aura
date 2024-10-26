@@ -6,7 +6,42 @@
 }
 body {
   font-family: "Inter", sans-serif;
+  background: linear-gradient(170deg, rgba(3, 32, 71, 0.8), rgb(3, 30, 66));
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #021127;
+    border-radius: 1rem;
+  }
+  &::-webkit-scrollbar-track {
+    background: #0a2749;
+  }
 }
+
 h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
+}
+h2 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+h4 {
+  font-size: 1.2rem;
+}
+
+button,
+input {
+  font-family: "Inter", sans-serif;
+}
+button {
+  cursor: pointer;
 }

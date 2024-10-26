@@ -1,0 +1,75 @@
+.background {
+  width: 80%;
+  margin: 4rem auto;
+  background: linear-gradient(170deg, #2f4f77, #244061);
+  border-radius: 1.5rem;
+  position: relative;
+  text-align: center;
+  flex-direction: column;
+  padding: 4rem;
+  display: flex;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 1.65rem;
+    padding: 4px;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(170deg, rgb(73, 120, 180), rgb(130, 171, 224));
+    opacity: 0.5;
+  }
+  &::before {
+    filter: blur(4px);
+  }
+}
+
+.title {
+  margin-bottom: 2rem;
+  scale: 0.9;
+  h3 {
+    padding: 0.25rem;
+  }
+}
+
+.mainInfo {
+  margin-bottom: 4rem;
+}
+
+.condition {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.extraInfo {
+  width: 60%;
+  margin: auto;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.card {
+  background: #36608fa2;
+  flex-basis: 15rem;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 0.5rem;
+  border: 3px solid #557caf;
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+}
