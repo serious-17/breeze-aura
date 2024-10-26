@@ -10,10 +10,10 @@ const Home = () => {
 
   useEffect(() => {
     let query;
-    if (localStorage.getItem("weather") === null) {
+    if (localStorage.getItem("weather_location") === null) {
       query = undefined;
     } else {
-      query = JSON.parse(localStorage.getItem("weather"));
+      query = JSON.parse(localStorage.getItem("weather_location"));
     }
     fetchData(query, weather, setWeather);
   }, []);
@@ -21,6 +21,8 @@ const Home = () => {
   return (
     <>
       {weather.isLoading && <h1>I am Loading...</h1>}
+      {!weather.results && !weather.isLoading && <h1>no results found</h1>}
+
       {!weather.isLoading && (
         <div className={style.background}>
           <div className={style.mainInfo}>
@@ -73,6 +75,26 @@ const Home = () => {
               <div className={style.card}>
                 <h4>Heat Index</h4>
                 <p>{weather.current.heatindex_c}º C</p>
+              </div>
+              <div className={style.card}>
+                <h4>Sunrise</h4>
+                <p>{weather.astro.sunrise}</p>
+              </div>
+              <div className={style.card}>
+                <h4>Sunset</h4>
+                <p>{weather.astro.sunset}</p>
+              </div>
+              <div className={style.card}>
+                <h4>Moonrise</h4>
+                <p>{weather.astro.moonrise}</p>
+              </div>
+              <div className={style.card}>
+                <h4>Moonset</h4>
+                <p>{weather.astro.moonset}</p>
+              </div>
+              <div className={style.card}>
+                <h4>Moon Phase</h4>
+                <p>{weather.astro.moon_phase}</p>
               </div>
             </div>
           </div>
