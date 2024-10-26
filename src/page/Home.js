@@ -4,6 +4,7 @@ import { useAtom } from "jotai";
 import { weatherData } from "../components/states";
 import style from "../styles/Home.module.scss";
 import { motion } from "framer-motion";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const Home = () => {
   const [weather, setWeather] = useAtom(weatherData);
@@ -20,7 +21,15 @@ const Home = () => {
 
   return (
     <>
-      {weather.isLoading && <h1>I am Loading...</h1>}
+      {weather.isLoading && (
+        <Icon
+          className={style.loading}
+          icon="svg-spinners:pulse-multiple"
+          width="128px"
+          height="128px"
+        />
+      )}
+
       {!weather.results && !weather.isLoading && <h1>no results found</h1>}
 
       {!weather.isLoading && (

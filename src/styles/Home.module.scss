@@ -73,3 +73,12 @@
     margin-bottom: 0.5rem;
   }
 }
+
+.loading {
+  position: absolute;
+  color: white;
+  top: 30%;
+  z-index: 10;
+  transform: translate(-50%);
+  left: 50%;
+}
