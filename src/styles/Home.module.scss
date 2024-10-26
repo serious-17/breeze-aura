@@ -2,6 +2,7 @@
   width: 70%;
   min-height: 40vh;
   margin: 4rem auto;
+  margin-top: 3rem;
   background: linear-gradient(170deg, #2f4f77, #244061);
   border-radius: 1.5rem;
   position: relative;
@@ -111,12 +112,15 @@
     width: 95%;
     background: none;
     padding: 0;
-    margin: 1rem auto;
+    margin: 0rem auto;
     margin-bottom: 2rem;
     &::before,
     &::after {
       background: none;
     }
+  }
+  .mainInfo {
+    margin-bottom: 2rem;
   }
   .card {
     margin: 2rem 1rem;

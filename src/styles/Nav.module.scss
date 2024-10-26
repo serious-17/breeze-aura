@@ -12,6 +12,7 @@ nav {
 
 form {
   padding: 1rem;
+  padding-top: 2rem;
   input,
   button {
     font-size: 1.5rem;
@@ -41,17 +42,35 @@ form {
     width: 35%;
   }
 }
+@media screen and (max-width: 629px) {
+  nav {
+    padding-top: 4rem;
+    h1 {
+      font-size: 2rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+  form {
+    input,
+    button {
+      font-size: 1.8rem;
+    }
+    input {
+      width: 38%;
+    }
+  }
+}
 @media screen and (max-width: 559px) {
   form input {
-    width: 38%;
+    width: 40%;
   }
   form button {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
   }
 }
 
 @media screen and (max-width: 500px) {
   form input {
-    width: 60%;
+    width: 65%;
   }
 }
