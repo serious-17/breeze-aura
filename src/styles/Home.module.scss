@@ -1,5 +1,6 @@
 .background {
   width: 80%;
+  min-height: 40vh;
   margin: 4rem auto;
   background: linear-gradient(170deg, #2f4f77, #244061);
   border-radius: 1.5rem;
@@ -69,16 +70,25 @@
   margin: 2rem;
   border-radius: 0.5rem;
   border: 3px solid #557caf;
+  transition: 0.2s ease;
+  transition-property: scale, box-shadow;
   h4 {
     margin-bottom: 0.5rem;
+  }
+  &:hover {
+    scale: 1.02;
+    box-shadow: 0px 0px 10px #557cafad;
+  }
+  &:active {
+    scale: 0.98;
   }
 }
 
 .loading {
   position: absolute;
   color: white;
-  top: 30%;
+  top: 50%;
   z-index: 10;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   left: 50%;
 }

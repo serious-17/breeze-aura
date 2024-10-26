@@ -20,7 +20,10 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <motion.div className={style.background}>
+      {!weather.results && !weather.isLoading && (
+        <h1 className={style.loading}>no results were found</h1>
+      )}
       {weather.isLoading && (
         <Icon
           className={style.loading}
@@ -29,13 +32,8 @@ const Home = () => {
           height="128px"
         />
       )}
-
-      {!weather.results && !weather.isLoading && (
-        <h1 className={style.loading}>no results were found</h1>
-      )}
-
-      {!weather.isLoading && (
-        <div className={style.background}>
+      {!weather.isLoading && weather.results && (
+        <div className="weather">
           <div className={style.mainInfo}>
             <div className={style.title}>
               <h3>
@@ -111,10 +109,8 @@ const Home = () => {
           </div>
         </div>
       )}
-    </>
+    </motion.div>
   );
 };
-
-//! ADD ASTRONOMY TO THIS APPLICATION
 
 export default Home;
