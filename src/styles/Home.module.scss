@@ -121,3 +121,10 @@
     margin: 2rem 1rem;
   }
 }
+
+@media screen and (max-width: 375px) {
+  .card {
+    margin: 2rem 1rem;
+    flex-basis: 14rem;
+  }
+}
