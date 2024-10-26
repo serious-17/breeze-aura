@@ -19,6 +19,11 @@ const Home = () => {
     fetchData(query, weather, setWeather);
   }, []);
 
+  const getTime = () => {
+    const time = weather.location.localtime.split(" ")[1];
+    return time;
+  };
+
   return (
     <motion.div className={style.background}>
       {!weather.results && !weather.isLoading && (
@@ -92,6 +97,10 @@ const Home = () => {
               <div className={style.card}>
                 <h4>Sunset</h4>
                 <p>{weather.astro.sunset}</p>
+              </div>
+              <div className={style.card}>
+                <h4>Current Time</h4>
+                <p>{getTime()}</p>
               </div>
               <div className={style.card}>
                 <h4>Moonrise</h4>
