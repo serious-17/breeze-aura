@@ -35,12 +35,6 @@ const Home = () => {
       {!weather.isLoading && weather.results && (
         <div className="weather">
           <div className={style.mainInfo}>
-            <div className={style.title}>
-              <h3>
-                {weather.location.name}, {weather.location.region}
-              </h3>
-              <p>{weather.location.country}</p>
-            </div>
             <div className={style.weather}>
               <motion.h2
                 drag="x"
@@ -54,6 +48,12 @@ const Home = () => {
               <div className={style.condition}>
                 <p>{weather.current.condition.text}</p>
                 <img src={weather.current.condition.icon} alt="" />
+              </div>
+              <div className={style.title}>
+                <h3>
+                  {weather.location.name}, {weather.location.region}
+                </h3>
+                <p>{weather.location.country}</p>
               </div>
             </div>
           </div>
