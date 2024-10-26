@@ -1,5 +1,5 @@
 .background {
-  width: 80%;
+  width: 70%;
   min-height: 40vh;
   margin: 4rem auto;
   background: linear-gradient(170deg, #2f4f77, #244061);
@@ -49,10 +49,13 @@
   p {
     font-size: 1.2rem;
   }
+  img {
+    width: 4rem;
+  }
 }
 
 .extraInfo {
-  width: 60%;
+  width: 100%;
   margin: auto;
 }
 
@@ -65,7 +68,7 @@
 
 .card {
   background: #36608fa2;
-  flex-basis: 13rem;
+  flex-basis: 15rem;
   padding: 2rem;
   margin: 2rem;
   border-radius: 0.5rem;
@@ -91,4 +94,30 @@
   z-index: 10;
   transform: translate(-50%, -50%);
   left: 50%;
+}
+
+@media screen and (max-width: 1146px) {
+  .background {
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 1068px) {
+  .background {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 629px) {
+  .background {
+    width: 95%;
+    background: none;
+    padding: 0;
+    margin: 1rem auto;
+    &::before,
+    &::after {
+      background: none;
+    }
+  }
+  .card {
+    margin: 2rem 1rem;
+  }
 }
