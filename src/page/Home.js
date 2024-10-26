@@ -16,7 +16,6 @@ const Home = () => {
       query = JSON.parse(localStorage.getItem("weather"));
     }
     fetchData(query, weather, setWeather);
-    console.log(weather);
   }, []);
 
   return (
