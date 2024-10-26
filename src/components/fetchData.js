@@ -12,12 +12,12 @@ const fetchData = async (query, weather, setWeather) => {
       return;
     }
     astronomyData = await axios.get(astronomyURL(query));
+    localStorage.setItem("weather_location", JSON.stringify(query));
   } else {
     weatherData = await axios.get(weatherURL("london"));
     astronomyData = await axios.get(astronomyURL("london"));
   }
 
-  localStorage.setItem("weather_location", JSON.stringify(query));
   setWeather({
     ...weather,
     current: weatherData.data.current,

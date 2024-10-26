@@ -30,7 +30,9 @@ const Home = () => {
         />
       )}
 
-      {!weather.results && !weather.isLoading && <h1>no results found</h1>}
+      {!weather.results && !weather.isLoading && (
+        <h1 className={style.loading}>no results were found</h1>
+      )}
 
       {!weather.isLoading && (
         <div className={style.background}>
