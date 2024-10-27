@@ -10,6 +10,7 @@
   flex-direction: column;
   padding: 4rem;
   display: flex;
+  transition: background 0.5s ease;
 
   &::before,
   &::after {
@@ -28,6 +29,21 @@
   }
   &::before {
     filter: blur(4px);
+  }
+}
+
+.background.night {
+  background: linear-gradient(170deg, #223a57, #1c324b);
+  &::before,
+  &::after {
+    background: linear-gradient(170deg, rgb(54, 88, 133), rgb(94, 122, 160));
+  }
+  .card {
+    background: #2a4b70a2;
+    border: 3px solid #44638b;
+    &:hover {
+      box-shadow: 0px 0px 10px #476792ad;
+    }
   }
 }
 
@@ -69,13 +85,13 @@
 
 .card {
   background: #36608fa2;
+  border: 3px solid #557caf;
   flex-basis: 15rem;
   padding: 2rem;
   margin: 2rem;
   border-radius: 0.5rem;
-  border: 3px solid #557caf;
   transition: 0.2s ease;
-  transition-property: scale, box-shadow;
+  transition-property: scale, background, box-shadow;
   h4 {
     margin-bottom: 0.5rem;
   }
@@ -95,6 +111,14 @@
   z-index: 10;
   transform: translate(-50%, -50%);
   left: 50%;
+}
+
+.crescent {
+  position: absolute;
+  top: -5%;
+  left: 10%;
+  opacity: 0.25;
+  transform: translate(-18%);
 }
 
 @media screen and (max-width: 1146px) {
@@ -119,11 +143,23 @@
       background: none;
     }
   }
+  .background.night {
+    background: none;
+    &::before,
+    &::after {
+      background: none;
+    }
+  }
   .mainInfo {
     margin-bottom: 2rem;
   }
   .card {
     margin: 2rem 1rem;
+  }
+  .crescent {
+    scale: 0.6;
+    left: 5%;
+    top: 0%;
   }
 }
 

@@ -21,7 +21,38 @@ const Home = () => {
 
   const getTime = () => {
     const time = weather.location.localtime.split(" ")[1];
+
+    if (!isDay()) {
+      document.body.style.background = `linear-gradient(170deg, rgba(2, 26, 58, 0.85), rgb(1, 22, 49))`;
+      document.body.style.background = `linear-gradient(170deg, rgba(2, 22, 48, 0.85), rgb(0, 17, 37))`;
+    } else {
+      document.body.style.background = `linear-gradient(170deg, rgba(3, 32, 71, 0.8), rgb(3, 30, 66))`;
+    }
     return time;
+  };
+
+  const isDay = () => {
+    if (!weather.location.localtime) return;
+    const currentTime = weather.location.localtime.split(" ")[1];
+    const currentHours = currentTime.split(":")[0];
+    const currentMinutes = currentTime.split(":")[1];
+    const currentTotal = currentHours * 60 + Number(currentMinutes);
+
+    const sunrise = weather.astro.sunrise.split(" ")[0];
+    const sunriseHours = Number(sunrise.split(":")[0]);
+    const sunriseMinutes = sunrise.split(":")[1];
+    const sunriseTotal = sunriseHours * 60 + Number(sunriseMinutes);
+
+    const sunset = weather.astro.sunset.split(" ")[0];
+    const sunsetHours = Number(sunset.split(":")[0]) + 12;
+    const sunsetMinutes = sunset.split(":")[1];
+    const sunsetTotal = sunsetHours * 60 + Number(sunsetMinutes);
+
+    if (currentTotal > sunriseTotal && currentTotal < sunsetTotal) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const fade = {
@@ -47,7 +78,7 @@ const Home = () => {
       initial="hidden"
       animate="show"
       exit="exit"
-      className={style.background}
+      className={`${style.background} ${isDay() ? "" : style.night}`}
     >
       {!weather.results && !weather.isLoading && (
         <AnimatePresence mode="wait">
@@ -140,6 +171,17 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <Icon
+              className={style.crescent}
+              icon={
+                isDay()
+                  ? "line-md:sunny-filled"
+                  : "line-md:moon-rising-twotone-alt-loop"
+              }
+              style={isDay() ? { color: "#f7c631" } : ""}
+              width="8rem"
+              height="8rem"
+            />
           </motion.div>
         </AnimatePresence>
       )}
