@@ -23,7 +23,6 @@ const Home = () => {
     const time = weather.location.localtime.split(" ")[1];
 
     if (!isDay()) {
-      document.body.style.background = `linear-gradient(170deg, rgba(2, 26, 58, 0.85), rgb(1, 22, 49))`;
       document.body.style.background = `linear-gradient(170deg, rgba(2, 22, 48, 0.85), rgb(0, 17, 37))`;
     } else {
       document.body.style.background = `linear-gradient(170deg, rgba(3, 32, 71, 0.8), rgb(3, 30, 66))`;
@@ -83,7 +82,7 @@ const Home = () => {
       {!weather.results && !weather.isLoading && (
         <AnimatePresence mode="wait">
           <motion.h1 variants={fade} className={style.loading}>
-            no results were found
+            no results were found or there was a spelling mistake
           </motion.h1>
         </AnimatePresence>
       )}
@@ -172,7 +171,7 @@ const Home = () => {
               </div>
             </div>
             <Icon
-              className={style.crescent}
+              className={style.celestial}
               icon={
                 isDay()
                   ? "line-md:sunny-filled"
