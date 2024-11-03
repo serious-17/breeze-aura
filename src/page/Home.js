@@ -21,13 +21,22 @@ const Home = () => {
 
   const getTime = () => {
     const time = weather.location.localtime.split(" ")[1];
+    let hours = time.split(":")[0];
+    let minutes = time.split(":")[1];
 
     if (!isDay()) {
       document.body.style.background = `linear-gradient(170deg, rgba(2, 22, 48, 0.85), rgb(0, 17, 37))`;
     } else {
       document.body.style.background = `linear-gradient(170deg, rgba(3, 32, 71, 0.8), rgb(3, 30, 66))`;
     }
-    return time;
+
+    if (hours >= 22) return `${hours - 12}:${minutes} PM`;
+
+    if (hours > 12) return `0${hours - 12}:${minutes} PM`;
+
+    if (hours < 12) return `${time} AM`;
+
+    if (hours == 10) return `12:${minutes} AM`;
   };
 
   const isDay = () => {
